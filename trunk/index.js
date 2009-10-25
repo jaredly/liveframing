@@ -209,6 +209,7 @@ function white(num){
 
 function prettyHTML(node, indent){
   indent = indent || 0;
+  if (node.nodeName == '#comment')return '';
   if (node.nodeName == '#text'){
     return node.textContent.replace(/^\s*/,'').replace(/\s*$/,'');
   }
