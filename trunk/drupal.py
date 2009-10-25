@@ -4,6 +4,8 @@ import os
 
 import MySQLdb
 
+sys.path.append('/home1/marketr5/lib64/python2.4/site-packages')
+
 class MySQL:
     def __init__(self):
         self.db = MySQLdb.connect("localhost", "gamecc", "drupal", "drupal")
