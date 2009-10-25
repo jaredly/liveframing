@@ -1,0 +1,176 @@
+#edit-image-preview {
+	left: 10px;
+  top: 10px;
+  height: 130px;
+  width: 130px;
+  position: absolute;
+  background-color: rgb(0, 73, 219);
+}
+.name {
+	left: 10px;
+  top: 150px;
+  width: 130px;
+  height: 30px;
+  position: absolute;
+  background-color: rgb(181, 255, 91);
+}
+.info-sidebar {
+	left: 10px;
+  top: 10px;
+  width: 150px;
+  height: auto;
+  bottom: 10px;
+  position: absolute;
+  background-color: rgb(188, 56, 0);
+}
+#edit-image-list {
+	left: 170px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  background-color: rgb(220, 0, 224);
+}
+#sidebar {
+	top: 40px;
+  left: 10px;
+  width: 200px;
+  height: auto;
+  position: absolute;
+  background-color: rgb(255, 113, 25);
+  bottom: 10px;
+}
+#toolbar {
+	top: 10px;
+  left: 10px;
+  width: 1420px;
+  height: 30px;
+  position: absolute;
+  background-color: rgb(30, 60, 255);
+}
+#tabcontent {
+	top: 40px;
+  left: 210px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  background-color: rgb(229, 84, 0);
+  bottom: 10px;
+  right: 10px;
+}
+#edit-image {
+	top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  background-color: rgb(0, 20, 209);
+}
+#edit-map {
+	top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  background-color: rgb(0, 163, 87);
+}
+#minimap {
+	top: 10px;
+  left: 10px;
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  background-color: rgb(76, 255, 180);
+}
+#map-canvas {
+	top: 40px;
+  left: 170px;
+  width: auto;
+  height: auto;
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+  background-color: rgb(0, 198, 86);
+}
+#map-toolbar {
+	top: 10px;
+  left: 250px;
+  width: auto;
+  height: 30px;
+  right: 10px;
+  position: absolute;
+  background-color: rgb(0, 98, 219);
+}
+#edit-object {
+	top: 0px;
+  left: 0px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  background-color: rgb(229, 160, 0);
+  right: 0px;
+  bottom: 0px;
+}
+#object-image {
+	top: 10px;
+  left: 10px;
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  background-color: rgb(38, 142, 0);
+}
+#object-events {
+	top: 10px;
+  left: 170px;
+  width: 200px;
+  height: auto;
+  bottom: 10px;
+  position: absolute;
+  background-color: rgb(231, 255, 15);
+}
+#object-actions {
+	top: 10px;
+  left: 380px;
+  width: 420px;
+  height: auto;
+  bottom: 10px;
+  position: absolute;
+  background-color: rgb(137, 18, 0);
+}
+#plugins {
+	top: 10px;
+  left: 810px;
+  width: auto;
+  height: auto;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  background-color: rgb(75, 0, 168);
+}
+#object-toolbar {
+	left: 170px;
+  top: 10px;
+  background-color: rgb(255, 168, 96);
+  height: 30px;
+  width: auto;
+  right: 10px;
+  position: absolute;
+}
+.header {
+	position: absolute;
+}
+#image-list {
+	position: absolute;
+}
+#object-list {
+	position: absolute;
+}
+#map-list {
+	position: absolute;
+}
