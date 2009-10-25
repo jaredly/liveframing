@@ -21,7 +21,7 @@ import re
 
 def get_username():
   loggedin, name = drupal.login()
-  print "{'error':'', 'loggedin':"+loggedin+", 'username':'" + name + "', 'status':1}"
+  print "{'error':'', 'loggedin':"+str(loggedin)+", 'username':'" + name + "', 'status':1}"
 
 def list_frames():
   res = list(x for x in os.listdir('frames') if x.endswith('.html'))

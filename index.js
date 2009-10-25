@@ -50,7 +50,7 @@ var ManageDialog = Class([], {
         if (!res.loggedin){
           window.location = '../../';
         } else {
-          $('#liveframe-load-dialog .ui-dialog-title').html(re.username);
+          $('#ui-dialog-title-liveframe-load-dialog').html(res.username);
         }
       }
     });

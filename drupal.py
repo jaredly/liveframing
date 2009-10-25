@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-import os
+import os,sys
+
+sys.path.append('/home1/marketr5/lib64/python2.4/site-packages')
 
 import MySQLdb
 
-sys.path.append('/home1/marketr5/lib64/python2.4/site-packages')
 
 class MySQL:
     def __init__(self):
@@ -40,13 +41,15 @@ def getcookies():
 
 def login():
   cookies = getcookies()
-  db = MySQLdb.connect("localhost", "marketr5", "secret", "marketr5_drupal")
+  db = MySQLdb.connect("localhost", "marketr5", "bl77Sunset", "marketr5_drupal")
   cursor = db.cursor()
   for cookie in cookies:
     if cookie.startswith('SESS'):
-      cursor.execute('select * from sessions where sid="'+cookies[c]+'"')
+      cursor.execute('select * from sessions where sid="'+cookies[cookie]+'"')
       sess = cursor.fetchone()
       if sess:
         cursor.execute('select name from users where uid=%d'%sess[0])
-        return True, cursor.fetchone()[0]
-  return False,''
+        name = cursor.fetchone()[0]
+        if not name:return 0,''
+        return 1, name
+  return 0,''
