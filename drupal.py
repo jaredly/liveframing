@@ -39,4 +39,4 @@ def getcookies():
 def login():
   cookies = getcookies()
   for cookie in cookies:
-    if 
+    pass
