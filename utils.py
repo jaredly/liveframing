@@ -1,4 +1,3 @@
-import  json
 import sys
 import __main__
 
@@ -9,7 +8,7 @@ def exit(data={}):
     data['status'] = 1
   if not __main__.send_header:
     print 'Content-type:text/html\n'
-  print json.dumps(data)
+  print data
   sys.exit(0)
 
 def die(cause = 'Invalid Arguments', **kwargs):
