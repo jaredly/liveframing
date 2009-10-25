@@ -83,7 +83,6 @@ var ManageDialog = Class([], {
           var w = obj.css('width');
           var r = obj.css('right');
           var h = obj.css('height');
-          console.log(b,w,r,h);
           if (!(!b || (h!=='auto' && h))){
             $(x).addClass('liveframe-bottom');
           }else{
@@ -246,7 +245,6 @@ var DesignManager = Class([],{
     self.md = ManageDialog(self);
   },
   newAbsolute:function(self,e){
-    console.log(e,e.target);
     var off = $(e.target).offset();
     var grid = 10;
     var np = {'left':parseInt((e.pageX-off.left)/grid)*grid,'top':parseInt((e.pageY-off.top)/grid)*grid}
@@ -353,7 +351,6 @@ var DesignManager = Class([],{
   },
   updateBox:function(self, node){
     var node = $(node), off = node.offset(), main = $(node.offsetParent()), mof = main.offset();
-    console.log(node[0].offsetWidth, node[0].offsetHeight,node);
     if (node.hasClass('liveframe-bottom')){
       self.cssObj(node).css('bottom',roundby(main[0].offsetHeight - (off.top - mof.top + node[0].offsetHeight), 10)).css('height','auto');
     }else{
