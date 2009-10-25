@@ -60,6 +60,7 @@ def remove():
   print "{'error':'', 'status':1}"
 
 requireds = {'list_frames':[],
+             'get_username':[],
              'remove':['name'],
              'load':['name'],
              'save':['name', 'html', 'style']}
