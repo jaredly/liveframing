@@ -40,5 +40,13 @@ def getcookies():
 
 def login():
   cookies = getcookies()
+  db = MySQLdb.connect("localhost", "marketr5", "secret", "marketr5_drupal")
+  cursor = db.cursor()
   for cookie in cookies:
-    pass
+    if cookie.startswith('SESS'):
+      cursor.execute('select * from sessions where sid="'+cookies[c]+'"')
+      sess = cursor.fetchone()
+      if sess:
+        cursor.execute('select name from users where uid=%d'%sess[0])
+        return True, cursor.fetchone()[0]
+  return False,''
