@@ -251,7 +251,10 @@ var DesignManager = Class([],{
     var np = {'left':parseInt((e.pageX-off.left)/grid)*grid,'top':parseInt((e.pageY-off.top)/grid)*grid}
     var newdiv = $('<div class="liveframe-absolute"></div>').appendTo(e.target);
     self.addHandles(newdiv);
-    $(newdiv).css('display','none');
+    
+    self.cssObj(newdiv).css('left', np.left).css('top', np.top);
+    self.cssObj(newdiv, '.pretty-colors').css('background-color',rcolor());
+    
     self.setID({'left':parseInt(e.pageX/grid)*grid,'top':parseInt(e.pageY/grid)*grid}, off, newdiv);
   },
   addHandles:function(self, node){
@@ -263,7 +266,7 @@ var DesignManager = Class([],{
       })
       .resizable({grid:[10,10],
         resize:function(e,ui){
-          self.updateBox(this, e, ui);
+          //self.updateBox(this, e, ui);
           self.updateHover(this, e);
           return false;
         },stop:function(e, ui){
@@ -298,20 +301,22 @@ var DesignManager = Class([],{
     return function(name){
       self._setID(node, name);
       $(node).css('display','');
-      self.cssObj(node).css('left', pos.left - off.left).css('top', pos.top - off.top).css('background-color',rcolor());
+      
       self.md.listItems();
     };
   },
-  cssObj: function(self, node){
+  cssObj: function(self, node, front){
     var cssobj;
     node = $(node);
+    if (front)front+=' ';
+    else front = '';
     var id = self.getID(node);
     if (!id || id == '[no id]'){
       cssobj = node;
     }else{
-      cssobj = $.rule(id, '#liveframe-style');
+      cssobj = $.rule(front + id, '#liveframe-style');
       if (!cssobj.length){
-        cssobj = $.rule(id + '{}').appendTo('#liveframe-style');
+        cssobj = $.rule(front + id + '{}').appendTo('#liveframe-style');
       }
     }
     var fakeobj = {
@@ -324,7 +329,8 @@ var DesignManager = Class([],{
         node.css(attr, '');
         cssobj.css(attr, value);
         return fakeobj;
-      }
+      },
+      'cssobj':cssobj
     }
     return fakeobj;
   },
@@ -332,6 +338,10 @@ var DesignManager = Class([],{
     if (!name || name == '[no id]')return;
     var id = '', classN = '';
     node = $(node)[0];
+    var co = self.cssObj(node);
+    var left = co.css('left');
+    var top = co.css('top');
+    var bgc = co.css('background-color') || node.style.backgroundColor;
     if (name.indexOf('.')!==-1){
       var parts = name.split('.');
       if (parts[0]){
@@ -343,9 +353,12 @@ var DesignManager = Class([],{
       node.id = id;
     } else {
       var id = name.split('#').slice(-1)[0];
-      if (id && $('#'+id).length)return;
+      if (id && $('#'+id).length)
+        return;
       node.id = id
     }
+    self.cssObj(node).css('left',left).css('top',top);
+    self.cssObj(node, '.pretty-colors').css('background-color',bgc);
   },
   removeHandles:function(self, node){
     $(node).draggable('destroy').resizable('destroy');

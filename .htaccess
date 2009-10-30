@@ -1,10 +1,1 @@
-
-
-AuthName "Restricted Area"
-
-
 AddHandler cgi-script .py .cgi
-
-AuthUserFile "/home1/marketr5/.htpasswds/public_html/jaredforsyth/py/passwd"
-AuthType Basic
-require valid-user

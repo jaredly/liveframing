@@ -5,6 +5,7 @@ import os,sys
 sys.path.append('/home1/marketr5/lib64/python2.4/site-packages')
 
 import MySQLdb
+pwd = open('/home1/marketr5/.liveframe').read().strip()
 
 
 class MySQL:
@@ -41,7 +42,7 @@ def getcookies():
 
 def login():
   cookies = getcookies()
-  db = MySQLdb.connect("localhost", "marketr5", "bl77Sunset", "marketr5_drupal")
+  db = MySQLdb.connect("localhost", "marketr5", pwd, "marketr5_drupal")
   cursor = db.cursor()
   for cookie in cookies:
     if cookie.startswith('SESS'):
